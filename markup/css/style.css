@@ -1,0 +1,168 @@
+/* option */
+*{
+	box-sizing: border-box;
+	font-family: "Xolonium", sans-serif;
+}
+body{
+	background-image: url("../img/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+ul, li{
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+p{
+	margin:0;
+}
+button{
+	background-color: #fff036;
+	border-radius: 10px;
+}
+/* header */
+header{
+	background-color: #202021;
+}
+header .head{
+	margin:15px 0;
+}
+header .margin-header{
+	margin: 15px 0;
+}
+header .menu a{
+	margin: 0 20px;
+	color:#fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+header .menu a{
+	color:#fff;
+}
+header .menu a:hover{
+	color:#fff036;
+}
+
+header .button{
+	padding: 5px 40px;
+	font-weight: 700;
+
+}
+header .button:hover{
+	cursor: pointer;
+}
+ /* ================== main ===================== */
+#main{
+	margin: 100px 0;
+}
+
+#main .name-category{
+	padding: 15px 0;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	background-color:#000;
+	opacity: 0.8;
+}
+#main .category{
+	/* rgba потому что иначе opacity вниутри opacity не работает*/
+	background-color: rgba(0,0,0, 0.2);
+	padding-top:5px;
+	padding-bottom: 5px;
+}
+
+
+#main .item{
+	padding: 12px 25px;
+	margin:5px 5px;
+	background-color: rgba(255,255,255, 0.2);
+	justify-content: space-between;
+
+}
+
+#main .item:first-of-type{
+	margin-top:0;
+}
+#main .category a{
+	text-decoration: none;
+}
+#main .category a:active,
+#main .category a {
+  text-decoration: none;
+  color:#423636;
+  font-weight: 700;
+}
+#main .category a:hover{
+	color:#fff;
+}
+.form-search{
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+}
+#main .form-search input{
+	height: 40px;
+	border:3px solid #565454;
+	border-radius: 10px;
+	min-width: 100%;
+}
+#main .button_search{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 80px;
+  height: 40px;
+  border: 3px solid #565454;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.slider{
+	margin-top:50px;
+}
+.owl-controls {
+position: relative;
+top: -40px;
+}
+.owl-prev {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+}
+.owl-next {
+	position: absolute;
+	right: 0px;
+	top: 50%;
+}
+.owl-dots{
+	position:absolute;
+	left:40%;
+	bottom: 0px;
+}
+.owl-theme .owl-nav [class*='owl-']{
+	background: none;
+}
+.owl-theme .owl-nav [class*='owl-']:hover{
+	background: none;
+}
+/* ===================gellery==================== */
+#gallery .bg-color{
+	 background-color:#43433f;
+	 padding:70px 0;
+}
+#gallery .card .price{
+ margin-top: auto; 
+}
+#gallery .card{
+	width: 100%;
+}
+#gallery .cards{
+	flex-wrap: wrap;
+}
+#gallery img{
+	display: block;
+}
+
+
+

@@ -1,0 +1,19 @@
+var owl = $('.owl-carousel');
+				owl.owlCarousel({
+					items:1,
+					responsiveClass:true,
+					nav: true,
+					navText: [
+						'<img style="display:block" class="am-prew" src="img/left.svg" alt="">',
+						'<img style="display:block" class="am-prew" src="img/right.svg" alt="">'
+					],
+					singleItem:true,
+					loop:true,
+					// margin:10,
+					autoplayHoverPause:true,
+					autoWidth:true,
+					autoplay:true,
+					autoplayTimeout:3000,
+					autoplayHoverPause:false,
+					autoplaySpeed:1000
+				});
