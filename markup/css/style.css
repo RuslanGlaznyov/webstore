@@ -8,6 +8,8 @@ body{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	
+
 }
 ul, li{
 	display: block;
@@ -54,7 +56,7 @@ header .button:hover{
 }
  /* ================== main ===================== */
 #main{
-	margin: 100px 0;
+	margin: 25px 0;
 }
 
 #main .name-category{
@@ -119,7 +121,7 @@ header .button:hover{
   font-weight: 700;
 }
 .slider{
-	margin-top:50px;
+	margin-top:25px;
 }
 .owl-controls {
 position: relative;
@@ -152,7 +154,7 @@ top: -40px;
 	 padding:70px 0;
 }
 #gallery .card .price{
- margin-top: auto; 
+ margin-top: auto;
 }
 #gallery .card{
 	width: 100%;
