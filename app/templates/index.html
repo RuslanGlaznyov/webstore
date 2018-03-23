@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="main">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="name-category">
+				<p>каталог</p>
+			</div>
+			<div class="category">
+			<ul>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Деревянные</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Магнитные</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Кубики 2х2х2</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Стандартные</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Кубики 4x4x4</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Кубики 5х5х5</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Кубики 6х6х6</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Пирамида</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Мегамиксы</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Наклейки</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Запчасти</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="item d-flex align-items-center">
+							<p>Масло</p>
+							<i class="fas fa-angle-right"></i>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		</div>
+		<div class="col-lg-9 right-side">
+			<div class="search  d-flex">
+				<form action="" class="form-search">
+					<input type="text" name="search-form">
+					<button type="submit" class="button_search">найти</button>
+				</form>
+			</div>
+			<div class="slider">
+				<div class="owl-carousel owl-theme">
+					<div class="ite-img"  style="width: 850px; height:600px;"><img src="../static/img/slider-img1.jpg" alt=""></div>
+					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img2.jpg" alt=""></div>
+					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img3.jpg" alt=""></div>
+					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img4.jpg" alt=""></div>
+					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img5.jpg" alt=""></div>
+				</div>
+			</div>
+		</div>
+</section>
+
+<section id="gallery">
+	<div class="bg-color">	
+		<div class="container">
+			<div class="row cards">
+				<div class="col-lg-3 d-flex">
+					<div class="card">
+						<img src="../static/img/cube1.png" alt="">
+						<h2>Dayan 5</h2>
+						<div class="price"><span>100</span><input type="submit"></div>
+					</div>
+				</div>
+				<div class="col-lg-3 d-flex">
+					<div class="card">
+						<img src="../static/img/cube2.png" alt="">
+						<h2>Valk 3</h2>
+						<div class="price"><span>100</span><input type="submit"></div>
+					</div>
+				</div>
+				<div class="col-lg-3 d-flex">
+					<div class="card">
+						<img src="../static/img/cube3.png" alt="">
+						<h2>MoFangGe LeiTing v2</h2>
+						<div class="price"><span>100</span><input type="submit"></div>
+					</div>
+				</div>
+				<div class="col-lg-3 d-flex">
+					<div class="card">
+						<img src="../static/img/cube4.png" alt="">
+						<h2>MoYu AoLong</h2>
+						<div class="price"><span>100</span><input type="submit"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</section>
+{% endblock %}
+
