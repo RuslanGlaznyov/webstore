@@ -1,145 +1,37 @@
-{% extends "base.html" %}
+{% extends "sidebar-base.html" %}
 
-{% block content %}
-<section id="main">
-<div class="container">
-	<div class="row">
-		<div class="col-lg-3">
-			<div class="name-category">
-				<p>каталог</p>
-			</div>
-			<div class="category">
-			<ul>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Деревянные</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Магнитные</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Кубики 2х2х2</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Стандартные</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Кубики 4x4x4</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Кубики 5х5х5</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Кубики 6х6х6</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Пирамида</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Мегамиксы</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Наклейки</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Запчасти</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="item d-flex align-items-center">
-							<p>Масло</p>
-							<i class="fas fa-angle-right"></i>
-						</div>
-					</a>
-				</li>
-			</ul>
+{% block rightSide %}
+<div class="col-lg-9 right-side">
+	<div class="search  d-flex">
+		<form action="" class="form-search">
+			<input type="text" name="search-form">
+			<button type="submit" class="button_search">найти</button>
+		</form>
+	</div>
+	<div id="slider">
+		<div class="images">
+			<img class="slide show" src="{{ url_for('static',filename='img/slider-img1.jpg') }}" alt="">
+			<img class="slide" src="{{ url_for('static',filename='img/slider-img2.jpg') }}" alt="">
+			<img class="slide" src="{{ url_for('static',filename='img/slider-img3.jpg') }}" alt="">
+			<img class="slide" src="{{ url_for('static',filename='img/slider-img4.jpg') }}" alt="">
+			<img class="slide" src="{{ url_for('static',filename='img/slider-img5.jpg') }}" alt="">
 		</div>
-		</div>
-		<div class="col-lg-9 right-side">
-			<div class="search  d-flex">
-				<form action="" class="form-search">
-					<input type="text" name="search-form">
-					<button type="submit" class="button_search">найти</button>
-				</form>
-			</div>
-			<div id="slider">
-				<div class="images">
-					<img class="slide show" src="{{ url_for('static',filename='img/slider-img1.jpg') }}" alt="">
-					<img class="slide" src="{{ url_for('static',filename='img/slider-img2.jpg') }}" alt="">
-					<img class="slide" src="{{ url_for('static',filename='img/slider-img3.jpg') }}" alt="">
-					<img class="slide" src="{{ url_for('static',filename='img/slider-img4.jpg') }}" alt="">
-					<img class="slide" src="{{ url_for('static',filename='img/slider-img5.jpg') }}" alt="">
-				</div>
-				<ul>
-					<li><span class="dot"></span></li>
-					<li><span class="dot"></span></li>
-					<li><span class="dot"></span></li>
-					<li><span class="dot"></span></li>
-					<li><span class="dot"></span></li>
-				</ul>
-				<div class="contr-slider" >
-					<img src="{{ url_for('static',filename='img/left.svg') }}" alt="" class="prev">
-					<img src="{{ url_for('static',filename='img/right.svg') }}" alt="" class="next">
-				</div>
-			</div>
+		<ul>
+			<li><span class="dot"></span></li>
+			<li><span class="dot"></span></li>
+			<li><span class="dot"></span></li>
+			<li><span class="dot"></span></li>
+			<li><span class="dot"></span></li>
+		</ul>
+		<div class="contr-slider" >
+			<img src="{{ url_for('static',filename='img/left.svg') }}" alt="" class="prev">
+			<img src="{{ url_for('static',filename='img/right.svg') }}" alt="" class="next">
 		</div>
 	</div>
-</section>
+</div>
+{% endblock %}
 
+{% block below %}
 <section id="gallery">
 	<div class="bg-color">	
 		<div class="container">
@@ -176,5 +68,5 @@
 		</div>
 	</div>	
 </section>
-{% endblock %}
+{%endblock%}
 
