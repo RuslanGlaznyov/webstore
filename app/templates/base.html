@@ -5,21 +5,10 @@
     <title>RUTU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <!-- will change ..static/ to python url_for() function  -->
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/owl-carousel/css/owl.carousel.css">
-    <link rel="stylesheet" href="../static/owl-carousel/css/owl.theme.default.css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    
-    <script src="../static/owl-carousel/js/owl.carousel.js"></script>
-    
-
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/fonts.css">
-
-    <!-- will change  --> 
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script> 
     <title>Document</title>
 </head>
 <body>
@@ -28,7 +17,7 @@
         <div class="row align-items-center">
             <div class="logo mr-auto margin-header">
                 <a href="#">
-                    <img src="../static/img/logo.svg" alt="">
+                    <img src="{{ url_for('static',filename='img/logo.svg') }}" alt="">
                 </a>
             </div>
             <div class="jastify-content-center">
@@ -50,6 +39,6 @@
     </div>
 </header>
 {% block content %} {% endblock %}
-<script src="../static/js/script.js"></script>
+
 </body>
 </html>

@@ -11,6 +11,13 @@ body{
 	
 
 }
+@font-face {
+	font-family: "Xolonium";  
+	src: url("../fonts/Xolonium.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+	
 ul, li{
 	display: block;
 	padding: 0;
@@ -101,7 +108,7 @@ header .button:hover{
 .form-search{
 	position: relative;
 	width: 100%;
-	margin: 0 auto;
+	margin: 0   auto 50px 0;
 }
 #main .form-search input{
 	height: 40px;
@@ -120,33 +127,54 @@ header .button:hover{
   cursor: pointer;
   font-weight: 700;
 }
-.slider{
-	margin-top:25px;
+/*===============================slider ==========================*/
+#slider{
+	max-width: 100%;
 }
-.owl-controls {
-position: relative;
-top: -40px;
+#slider .images{
+	position: relative;
+	width: 100%;
+	height: 600px;
 }
-.owl-prev {
+#slider .images .slide{
+	 opacity: 0;
+	 transition: opacity 0.2s;
+	 position: absolute;
+	 width: 100%;
+}
+#slider .images .show{
+ opacity: 1;
+}
+
+#slider ul{
 	position: absolute;
-	top: 50%;
-	left: 0px;
+	display: flex;
+	bottom: 20px;
+	left: 40%;
 }
-.owl-next {
+#slider ul li{
+	list-style: none;
+}
+#slider .dot{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin:0 10px;
+	background: #D6D6D6;
+	border-radius:100%;
+	cursor: pointer;
+}
+#slider .next{
 	position: absolute;
-	right: 0px;
-	top: 50%;
+	right:15px;
+	top:55%;
+	cursor: pointer;
 }
-.owl-dots{
-	position:absolute;
-	left:40%;
-	bottom: 0px;
-}
-.owl-theme .owl-nav [class*='owl-']{
-	background: none;
-}
-.owl-theme .owl-nav [class*='owl-']:hover{
-	background: none;
+#slider .prev{
+	position: absolute;
+	left:15px;
+	top:55%;
+	cursor: pointer;
 }
 /* ===================gellery==================== */
 #gallery .bg-color{

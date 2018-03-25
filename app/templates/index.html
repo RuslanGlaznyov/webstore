@@ -116,16 +116,28 @@
 					<button type="submit" class="button_search">найти</button>
 				</form>
 			</div>
-			<div class="slider">
-				<div class="owl-carousel owl-theme">
-					<div class="ite-img"  style="width: 850px; height:600px;"><img src="../static/img/slider-img1.jpg" alt=""></div>
-					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img2.jpg" alt=""></div>
-					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img3.jpg" alt=""></div>
-					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img4.jpg" alt=""></div>
-					<div class="item-img" style="width: 850px; height:600px;"><img src="../static/img/slider-img5.jpg" alt=""></div>
+			<div id="slider">
+				<div class="images">
+					<img class="slide show" src="{{ url_for('static',filename='img/slider-img1.jpg') }}" alt="">
+					<img class="slide" src="{{ url_for('static',filename='img/slider-img2.jpg') }}" alt="">
+					<img class="slide" src="{{ url_for('static',filename='img/slider-img3.jpg') }}" alt="">
+					<img class="slide" src="{{ url_for('static',filename='img/slider-img4.jpg') }}" alt="">
+					<img class="slide" src="{{ url_for('static',filename='img/slider-img5.jpg') }}" alt="">
+				</div>
+				<ul>
+					<li><span class="dot"></span></li>
+					<li><span class="dot"></span></li>
+					<li><span class="dot"></span></li>
+					<li><span class="dot"></span></li>
+					<li><span class="dot"></span></li>
+				</ul>
+				<div class="contr-slider" >
+					<img src="{{ url_for('static',filename='img/left.svg') }}" alt="" class="prev">
+					<img src="{{ url_for('static',filename='img/right.svg') }}" alt="" class="next">
 				</div>
 			</div>
 		</div>
+	</div>
 </section>
 
 <section id="gallery">
@@ -134,28 +146,28 @@
 			<div class="row cards">
 				<div class="col-lg-3 d-flex">
 					<div class="card">
-						<img src="../static/img/cube1.png" alt="">
+						<img src="{{ url_for('static',filename='img/cube1.png'}}" alt="">
 						<h2>Dayan 5</h2>
 						<div class="price"><span>100</span><input type="submit"></div>
 					</div>
 				</div>
 				<div class="col-lg-3 d-flex">
 					<div class="card">
-						<img src="../static/img/cube2.png" alt="">
+						<img src="{{ url_for('static',filename='img/cube2.png'}}" alt="">
 						<h2>Valk 3</h2>
 						<div class="price"><span>100</span><input type="submit"></div>
 					</div>
 				</div>
 				<div class="col-lg-3 d-flex">
 					<div class="card">
-						<img src="../static/img/cube3.png" alt="">
+						<img src="{{ url_for('static',filename='img/cube3.png'}}" alt="">
 						<h2>MoFangGe LeiTing v2</h2>
 						<div class="price"><span>100</span><input type="submit"></div>
 					</div>
 				</div>
 				<div class="col-lg-3 d-flex">
 					<div class="card">
-						<img src="../static/img/cube4.png" alt="">
+						<img src="{{ url_for('static',filename='img/cube4.png'}}" alt="">
 						<h2>MoYu AoLong</h2>
 						<div class="price"><span>100</span><input type="submit"></div>
 					</div>
