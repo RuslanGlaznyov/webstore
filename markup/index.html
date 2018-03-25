@@ -3,17 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>RUTU</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="owl-carousel/css/owl.carousel.css">
-	<link rel="stylesheet" href="owl-carousel/css/owl.theme.default.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="owl-carousel/js/owl.carousel.js"></script>
-
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<header>
@@ -158,20 +153,31 @@
 							<button type="submit" class="button_search">найти</button>
 						</form>
 					</div>
-					<div class="slider">
-						<div class="owl-carousel owl-theme">
-							<div class="ite-img"  style="width: 850px; height:600px;"><img src="img/slider-img1.jpg" alt=""></div>
-							<div class="item-img" style="width: 850px; height:600px;"><img src="img/slider-img2.jpg" alt=""></div>
-							<div class="item-img" style="width: 850px; height:600px;"><img src="img/slider-img3.jpg" alt=""></div>
-							<div class="item-img" style="width: 850px; height:600px;"><img src="img/slider-img4.jpg" alt=""></div>
-							<div class="item-img" style="width: 850px; height:600px;"><img src="img/slider-img5.jpg" alt=""></div>
-						</div>
-					</div>
+						<div id="slider">
+							<div class="images">
+			        		<img class="slide show" src="img/slider-img1.jpg" alt="">
+			            <img class="slide" src="img/slider-img2.jpg" alt="">
+			            <img class="slide" src="img/slider-img3.jpg" alt="">
+			            <img class="slide" src="img/slider-img4.jpg" alt="">
+			            <img class="slide" src="img/slider-img5.jpg" alt="">
+			        </div>
+			        <ul>
+			            <li><span class="dot"></span></li>
+			            <li><span class="dot"></span></li>
+			            <li><span class="dot"></span></li>
+			            <li><span class="dot"></span></li>
+			            <li><span class="dot"></span></li>
+			        </ul>
+			        <div class="contr-slider" >
+			        	<img src="img/left.svg" alt="" class="prev">
+			        	<img src="img/right.svg" alt="" class="next">
+			    		</div>
+			  	</div>
 				</div>
 		</section>
-		
+
 		<section id="gallery">
-			<div class="bg-color">	
+			<div class="bg-color">
 				<div class="container">
 					<div class="row cards">
 						<div class="col-lg-3 d-flex">
@@ -204,7 +210,7 @@
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</section>
 </body>
 <script src="js/script.js"></script>
