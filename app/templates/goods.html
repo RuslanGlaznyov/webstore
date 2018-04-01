@@ -1,0 +1,22 @@
+{% extends "sidebar-base.html" %}
+
+{% block rightSide %}
+        <div class="col-lg-9 products ">
+            <div class="row">
+                {% for good in goods %}
+                <div class="col-lg-4 col-md-6 d-flex">
+                    <div class="product d-flex">
+                        <div class="product-image">
+                            <img src="{{ url_for('static',filename='img/cube1.png') }}" alt="">
+                        </div>
+                        <h2>{{ good.title }}</h2>
+                        <div class="price">
+                            <span>{{ good.price }}<sup>грн</sup></span>
+                            <input type="submit" value="купить" class="button btn-buy">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
