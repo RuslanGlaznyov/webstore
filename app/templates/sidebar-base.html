@@ -4,6 +4,12 @@
 <section id="main">
     <div class="container">
         <div class="row">
+            <div class="search  col-lg-12 d-flex">
+                <form action="" class="form-search">
+                    <input type="text" name="search-form">
+                    <button type="submit" class="button button_search">найти</button>
+                </form>
+            </div>
             <div class="col-lg-3">
                 <div class="name-category">
                     <p>каталог</p>
@@ -11,7 +17,7 @@
                 <div class="category">
                 <ul>
                     <li>
-                        <a href="">
+                        <a href="{{ url_for('goods') }}">
                             <div class="item d-flex align-items-center">
                                 <p>Деревянные</p>
                                 <i class="fas fa-angle-right"></i>
@@ -19,7 +25,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <div class="item d-flex align-items-center">
                                 <p>Магнитные</p>
                                 <i class="fas fa-angle-right"></i>

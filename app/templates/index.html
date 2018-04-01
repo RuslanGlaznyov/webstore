@@ -1,31 +1,27 @@
 {% extends "sidebar-base.html" %}
 
 {% block rightSide %}
-<div class="col-lg-9 right-side">
-	<div class="search  d-flex">
-		<form action="" class="form-search">
-			<input type="text" name="search-form">
-			<button type="submit" class="button_search">найти</button>
-		</form>
-	</div>
+<div class="col-lg-9 products">
 	<div id="slider">
-		<div class="images">
-			<img class="slide show" src="{{ url_for('static',filename='img/slider-img1.jpg') }}" alt="">
-			<img class="slide" src="{{ url_for('static',filename='img/slider-img2.jpg') }}" alt="">
-			<img class="slide" src="{{ url_for('static',filename='img/slider-img3.jpg') }}" alt="">
-			<img class="slide" src="{{ url_for('static',filename='img/slider-img4.jpg') }}" alt="">
-			<img class="slide" src="{{ url_for('static',filename='img/slider-img5.jpg') }}" alt="">
-		</div>
-		<ul>
-			<li><span class="dot"></span></li>
-			<li><span class="dot"></span></li>
-			<li><span class="dot"></span></li>
-			<li><span class="dot"></span></li>
-			<li><span class="dot"></span></li>
-		</ul>
-		<div class="contr-slider" >
-			<img src="{{ url_for('static',filename='img/left.svg') }}" alt="" class="prev">
-			<img src="{{ url_for('static',filename='img/right.svg') }}" alt="" class="next">
+		<div class="block">
+			<div class="images">
+				<img class="slide show" src="{{ url_for('static',filename='img/slider-img1.jpg') }}" alt="">
+				<img class="slide" src="{{ url_for('static',filename='img/slider-img2.jpg') }}" alt="">
+				<img class="slide" src="{{ url_for('static',filename='img/slider-img3.jpg') }}" alt="">
+				<img class="slide" src="{{ url_for('static',filename='img/slider-img4.jpg') }}" alt="">
+				<img class="slide" src="{{ url_for('static',filename='img/slider-img5.jpg') }}" alt="">
+			</div>
+			<ul>
+				<li><span class="dot"></span></li>
+				<li><span class="dot"></span></li>
+				<li><span class="dot"></span></li>
+				<li><span class="dot"></span></li>
+				<li><span class="dot"></span></li>
+			</ul>
+			<div class="contr-slider" >
+				<img src="{{ url_for('static',filename='img/left.svg') }}" alt="" class="prev">
+				<img src="{{ url_for('static',filename='img/right.svg') }}" alt="" class="next">
+			</div>
 		</div>
 	</div>
 </div>
@@ -36,34 +32,59 @@
 	<div class="bg-color">	
 		<div class="container">
 			<div class="row cards">
-				<div class="col-lg-3 d-flex">
-					<div class="card">
-						<img src="{{ url_for('static',filename='img/cube1.png') }}" alt="">
+
+				<div class="col-lg-3 col-md-6 d-flex">
+					<div class="product d-flex">
+						<div class="poduct-image">
+							<img src="{{ url_for('static',filename='img/cube1.png') }}" alt="">
+						</div>
 						<h2>Dayan 5</h2>
-						<div class="price"><span>100</span><input type="submit"></div>
+						<div class="price">
+							<span>100</span>
+							<input type="submit" value="купить" class="button btn-buy">
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 d-flex">
-					<div class="card">
-						<img src="{{ url_for('static',filename='img/cube2.png') }}" alt="">
+
+				<div class="col-lg-3 col-md-6 d-flex">
+					<div class="product d-flex">
+						<div class="poduct-image">
+							<img src="{{ url_for('static',filename='img/cube2.png') }}" alt="">
+						</div>
 						<h2>Valk 3</h2>
-						<div class="price"><span>100</span><input type="submit"></div>
+						<div class="price">
+							<span>100</span>
+							<input type="submit" value="купить" class="button btn-buy">
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 d-flex">
-					<div class="card">
-						<img src="{{ url_for('static',filename='img/cube3.png') }}" alt="">
+
+				<div class="col-lg-3 col-md-6 d-flex">
+					<div class="product d-flex">
+						<div class="poduct-image">
+							<img src="{{ url_for('static',filename='img/cube3.png') }}" alt="">
+						</div>
 						<h2>MoFangGe LeiTing v2</h2>
-						<div class="price"><span>100</span><input type="submit"></div>
+						<div class="price">
+							<span>100</span>
+							<input type="submit" value="купить" class="button btn-buy">
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 d-flex">
-					<div class="card">
-						<img src="{{ url_for('static',filename='img/cube4.png') }}" alt="">
+
+				<div class="col-lg-3 col-md-6 d-flex">
+					<div class="product d-flex">
+						<div class="poduct-image">
+							<img src="{{ url_for('static',filename='img/cube4.png') }}" alt="">
+						</div>
 						<h2>MoYu AoLong</h2>
-						<div class="price"><span>100</span><input type="submit"></div>
+						<div class="price">
+							<span>100</span>
+							<input type="submit" value="купить" class="button btn-buy">
+						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>	
