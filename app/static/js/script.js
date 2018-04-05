@@ -1,5 +1,18 @@
-window.onload=function(){
+window.onload = function(){
+    slider();
+    adaptiv_menu();
+    
+ }
+ function adaptiv_menu(){
+    var name_category = document.querySelector('.name-category');
+    var category = document.querySelector('.category');
+    
+    name_category.onclick = function(){
+        category.classList.toggle('active');
+    }
 
+ }
+ function slider(){
     var images = document.querySelectorAll("#slider .images .slide");
     var prev = document.querySelector("#slider .contr-slider .prev");
     var next = document.querySelector("#slider .contr-slider .next");
@@ -49,4 +62,5 @@ window.onload=function(){
             })  
         })(j);
     }
- }
+
+}

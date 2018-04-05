@@ -9,8 +9,8 @@ def slugify(s):
 
 class Good(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.Integer) #название товара 
-    category = db.Column(db.String(64))
+    title = db.Column(db.String(128)) #название товара 
+    category = db.Column(db.String(64), unique=True)
     desc = db.Column(db.Text)#описание товара 
     price = db.Column(db.Float)
     quantity = db.Column(db.Integer)

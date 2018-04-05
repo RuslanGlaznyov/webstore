@@ -3,5 +3,6 @@ app/__pycache__/
 __pycache__/
 .vscode/
 pylintrc
+data.db
 .gitignore
 
