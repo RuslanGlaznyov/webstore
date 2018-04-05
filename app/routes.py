@@ -1,16 +1,18 @@
 from app import app
 from flask import render_template
-from app.models import Good
+from app.models import Good, Category
 
-goods_from_db = Good.query.all()
+categories = Category.query.all()
 
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template("index.html", goods=goods_from_db)
+    return render_template("index.html", categories=categories)
 
 @app.route("/goods/<category>")
 def goods(category):
-    good_by_category = Good.query.filter_by(category=category)
-    return render_template('goods.html', goods=goods_from_db, \
-        good_by_category=good_by_category)
+    
+    category_from_db = Category.query.filter(Category.category == category).first()
+    goods_by_category = category_from_db.goods.all()
+    return render_template('goods.html', goods_by_category=goods_by_category, \
+        categories=categories)

@@ -15,12 +15,12 @@
                     <p>каталог</p>
                 </div>
                 <div class="category">
-                {% for good in goods %}
+                {% for category in categories %}
                 <ul>
                     <li>
-                        <a href="{{ url_for('goods', category=good.category) }}">
+                        <a href="{{ url_for('goods', category=category.category) }}">
                             <div class="item d-flex align-items-center">
-                                <p>{{good.category}}</p>
+                                <p>{{category.category}}</p>
                                 <i class="fas fa-angle-right"></i>
                             </div>
                         </a>

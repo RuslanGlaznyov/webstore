@@ -7,15 +7,26 @@ def slugify(s):
     slug = re.sub(pattern,"-", s)
     return slug.lower()
 
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(64), unique=True)
+    goods = db.relationship('Good', backref='category',lazy='dynamic')
+
+    def __repr__(self):
+        return "<id : {}, name_category : {}>".\
+                format(self.id ,self.category)        
+
+
 class Good(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128)) #название товара 
-    category = db.Column(db.String(64), unique=True)
     desc = db.Column(db.Text)#описание товара 
     price = db.Column(db.Float)
     quantity = db.Column(db.Integer)
     slug = db.Column(db.String(64)) #ссылка на товар 
     imgsrc =  db.Column(db.String(128))
+
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
     def __init__(self, *args, **kwargs):
         super(Good, self).__init__(*args, **kwargs)
