@@ -40,4 +40,7 @@ class Good(db.Model):
 
     def __repr__(self):
         return "<id : {}, title : {}>".format(self.id , self.title)
+    
+    def __unicode__(self):
+        return self.title
 
