@@ -11,3 +11,4 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'data.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY="you will never geas"
+    GOOD_PER_PAGE = 9

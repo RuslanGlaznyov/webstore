@@ -254,7 +254,44 @@ header .button:hover{
 	margin: 3px 0;
 	background: #f1f1f1;
 }
+/* ============================ content ================================= */
+#content .disk .border {
+	background: #fff;
+	border: 1px solid black;
+ }
+#content  .disk .border h2{
+	padding: 15px 60px;
+}
+/* =======================pagination============================= */
+.pagination{
+	display: inline-block;
+	margin: 20px auto;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
 
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
 @media (max-width: 1200px){
 

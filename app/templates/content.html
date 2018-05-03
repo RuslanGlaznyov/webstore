@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}   
+    <div class="container">
+        <div id="content">
+            <div class="row">
+            <div class="col-md-6">
+                <div class="slider">
+                    <img src="../static/img/cube1.png" alt="">
+                    <img src="../static/img/cube2.png" alt="">
+                    <img src="../static/img/cube3.png" alt="">
+                    <img src="../static/img/cube4.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="disc">
+                    <div class="border">
+                        <h2>{{ good.title }}</h2>
+                    </div>
+                    <div class="border ">
+                        <p>краткое описание</p>
+                        <p>{{ good.desc }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

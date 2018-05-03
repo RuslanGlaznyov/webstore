@@ -7,16 +7,36 @@
                 <div class="col-lg-4 col-md-6 d-flex">
                     <div class="product d-flex">
                         <div class="product-image">
+                            {% if (good.imgsrc)%}
                             <img src="{{ url_for('static',filename='images/'+good.imgsrc) }}" alt="">
+                            {% else %}
+                            <img src="" alt="image">
+                            {%endif%}
                         </div>
                         <h2>{{ good.title }}</h2>
                         <div class="price"> 
                             <span>{{ good.price }}<sup>грн</sup></span>
-                            <input type="submit" value="купить" class="button btn-buy">
+                            <!-- <a href="{{url_for('content', id_good=good.id)}}" class="button btn-buy">купить</a> -->
+                            <form action="{{url_for('content', id_good=good.id)}}">
+                                <input type="submit" class="button btn-buy" value="купить" style="cursor:pointer"></input>
+                        </form>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-            </div>
         </div>
+        <div class="pagination">
+            {% if prev_url%}
+            <a href="{{ prev_url}}">&laquo;</a>
+            {% endif %}
+            
+            {% for page in pages.iter_pages() %}
+            <a {%if page == pages.page %} class="active" {% endif %} href="./{{ category }}?page={{ page }}">{{ page }}</a>
+            {% endfor %}
+            
+            {% if next_url %}
+            <a href="{{ next_url }}">&raquo;</a>
+            {% endif %}
+        </div>
+       </div>
 {% endblock %}
