@@ -1,5 +1,5 @@
 from app import app, admin, db
-from flask import render_template, url_for, request, flash, redirect
+from flask import render_template, url_for, request, flash, redirect, session
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from app.models import Good, Category, User
@@ -83,22 +83,56 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
-id_goods = []
-goods = []
 @app.route('/cart')
 def cart():
-    return render_template('cart.html', id_goods=id_goods, goods=goods)
+    if 'cart' not in session or len(session['cart']) == 0:
+        return render_template('cart.html', display_cart = {}, isEmty=True, total=0)
+    else:
+        id_of_goods = session['cart']
+        dict_of_goods = {}
+        
+        total_price = 0
+        for id in id_of_goods:
+            good = Good.query.get(id)
+            total_price += good.price
+            if good.id in dict_of_goods:
+                dict_of_goods[good.id]['qty'] += 1
+            else:
+                dict_of_goods[good.id] = {
+                    'id':good.id,
+                    'qty':1,
+                    'title': good.title, 
+                    'price':good.price, 
+                    'img':good.imgsrc
+                    }
+
+        return render_template('cart.html', display_cart=dict_of_goods, total=total_price,isEmty=False)
 
 
 @app.route('/addtocart', methods = ['POST', 'GET'])
-def addToCart():
-    global goods
-    goods=Good.query.all()
+def add_to_cart():
     if request.method == 'POST':
+        if 'cart' not in session:
+            session['cart'] = []
+
         form = request.form
-        id_goods.append(int(form.get('good_id')))
+        id = int(form.get('good_id'))
+        session['cart'].append(id)
+        flash('добавили в корзину')
         return redirect(url_for('cart'))
-        
+
+@app.route('/delete_from_cart', methods = ['POST', 'GET'])
+def delete_from_cart():
+    if request.method == 'POST':
+        if 'cart' not in session:
+            session['cart'] = []
+
+        form = request.form
+        id = int(form.get('good_id'))
+        print(id)
+        session['cart'].remove(id)
+        flash('')
+        return redirect(url_for('cart'))
 
 #admin decoretor
 listens_for(Good,'after_delete')(del_image)

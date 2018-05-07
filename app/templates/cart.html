@@ -4,35 +4,40 @@
     <div id="cart">
         <h4>Корзина</h4>
         <table class="table table-cart">
-            {%for id in id_goods%}
+            {% for key, value in display_cart.items() %}
             <tr>
                 <td>
-                    {% if (goods[id-1].imgsrc)%}
-                    <img style="width:100px" src="{{ url_for('static',filename='images/'+goods[id-1].imgsrc) }}" alt="">
+                    {% if (value['img'])%}
+                    <img style="width:100px" src="{{ url_for('static',filename='images/'+value['img']) }}" alt="">
                     {% else %}
                     <img src="" alt="image">
                     {%endif%}
                 </td>
-                <td>{{goods[id-1].title}}</td>
+                <td>{{value['title']}}</td>
                 <td style="width:150px">
-                    &nbsp; шт
-                    <input class="form-control input-qty" type="number">
-                    
+                    {{ value['qty'] }}  &nbsp; шт
                 </td>
 
-                <td class="text-right">{{goods[id-1].price}}</td>
+                <td class="text-right">{{ value['price'] }}</td>
+                <td> {{value['price']*value['qty'] }}</td>
                 <td style="text-align: center;"> 
-                    <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <form action="{{ url_for('delete_from_cart') }}" method="POST">
+                        <input type ="hidden" name = "good_id" value = "{{ value['id'] }}" />
+                        <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </form>
                 </td>
             </tr>
             {%endfor%}
+            
+            {%if isEmty%}
             <tr>
-                <td colspan="4" class="text-center">Cart is empty</td>
+                <td colspan="4" class="text-center">Корзина пуста</td>
             </tr>
+            {%endif%}
             <tr>
                 <td></td>
                 <td class="text-right">Cart Total</td>
-                <td class="text-right">$300</td>
+                <td class="text-right">{{ total }}</td>
                 <td></td>
             </tr>
         </table>
