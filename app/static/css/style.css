@@ -292,6 +292,18 @@ header .button:hover{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+/* ===================== cart ==================== */
+#cart{
+	margin-top: 50px;
+}
+.input-qty {
+	width: 60px;
+	float: left;
+	
+  }
+.table-cart > tr > td {
+	vertical-align: middle !important;
+}
 
 @media (max-width: 1200px){
 

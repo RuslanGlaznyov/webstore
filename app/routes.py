@@ -1,9 +1,12 @@
 from app import app, admin, db
-from flask import render_template, url_for, request
-from app.models import Good, Category
+from flask import render_template, url_for, request, flash, redirect
+from flask_login import current_user, login_user, logout_user, login_required
+from werkzeug.urls import url_parse
+from app.models import Good, Category, User
 from sqlalchemy.event import listens_for
 
 from app.admin import GoodView, CategoryView, del_image
+from app.forms import LoginForm, RegistrationForm, AddToCartForm
 
 categories = Category.query.all()
 
@@ -30,14 +33,75 @@ def goods(category):
         categories=categories, prev_url=prev_url, next_url=next_url, pages=goods_by_category, \
         category=category)
 
-@app.route("/goods/<int:id_good>")
-def content(id_good):
-    good = Good.query.filter(Good.id == id_good).first()
-    return render_template('content.html', good=good)
+@app.route("/goods/<category>/<int:id_good>/<title>")
+def content(id_good, title, category):
+    form=AddToCartForm
+    good = Good.query.filter(Good.id == id_good).first_or_404()
+    return render_template('content.html', good=good,form=form )
 
-#gamnocode (((
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+
+    form=LoginForm()
+    #тестовая фича
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None  or  user.password != form.password.data:
+            flash('Введен неверный email или пароль')
+            return redirect(url_for('login'))
+        login_user(user, remember=form.remember_me.data)
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('index')
+        return redirect(next_page)
+    return render_template('login.html', form=form)
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@app.route("/user-page")
+def user_page():
+    return render_template('user-page.html')
+
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Поздравляем, теперь вы зарегистрированный пользователь!')
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
+
+id_goods = []
+goods = []
+@app.route('/cart')
+def cart():
+    return render_template('cart.html', id_goods=id_goods, goods=goods)
+
+
+@app.route('/addtocart', methods = ['POST', 'GET'])
+def addToCart():
+    global goods
+    goods=Good.query.all()
+    if request.method == 'POST':
+        form = request.form
+        id_goods.append(int(form.get('good_id')))
+        return redirect(url_for('cart'))
+        
+
+#admin decoretor
 listens_for(Good,'after_delete')(del_image)
 
 admin.add_view(GoodView(Good, db.session))
 admin.add_view(CategoryView(Category, db.session))
-

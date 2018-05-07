@@ -31,13 +31,30 @@
                 </nav>
             </div>
             <div class="login ml-auto">
-            <form action="https://google.com">
+            {% if current_user.is_anonymous%}
+            <form action="{{ url_for('login') }}">
                     <button type="submit" class=button>войти</button>
             </form>
+            {% else %}
+            <form action="{{ url_for('logout') }}">
+                    <button type="submit" class=button>выйти</button>
+            </form>
+            {% endif %}
             </div>
         </div>
     </div>
 </header>
+<!-- тестовая фича -->
+{% with messages = get_flashed_messages() %}
+{% if messages  %}
+<ul>
+    {% for message in messages %}
+        <li><span style="color:blue;">{{ message }} </span></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<!-- конец тестовой фичи -->
 {% block content %} {% endblock %}
 
 </body>

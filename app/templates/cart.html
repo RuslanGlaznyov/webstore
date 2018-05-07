@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container">
+    <div id="cart">
+        <h4>Корзина</h4>
+        <table class="table table-cart">
+            {%for id in id_goods%}
+            <tr>
+                <td>
+                    {% if (goods[id-1].imgsrc)%}
+                    <img style="width:100px" src="{{ url_for('static',filename='images/'+goods[id-1].imgsrc) }}" alt="">
+                    {% else %}
+                    <img src="" alt="image">
+                    {%endif%}
+                </td>
+                <td>{{goods[id-1].title}}</td>
+                <td style="width:150px">
+                    &nbsp; шт
+                    <input class="form-control input-qty" type="number">
+                    
+                </td>
+
+                <td class="text-right">{{goods[id-1].price}}</td>
+                <td style="text-align: center;"> 
+                    <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </td>
+            </tr>
+            {%endfor%}
+            <tr>
+                <td colspan="4" class="text-center">Cart is empty</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="text-right">Cart Total</td>
+                <td class="text-right">$300</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+{%endblock%}

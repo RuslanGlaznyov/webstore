@@ -16,10 +16,9 @@
                         <h2>{{ good.title }}</h2>
                         <div class="price"> 
                             <span>{{ good.price }}<sup>грн</sup></span>
-                            <!-- <a href="{{url_for('content', id_good=good.id)}}" class="button btn-buy">купить</a> -->
-                            <form action="{{url_for('content', id_good=good.id)}}">
+                            <form action="{{url_for('content', id_good=good.id,title=good.title, category=good.category.category)}}">
                                 <input type="submit" class="button btn-buy" value="купить" style="cursor:pointer"></input>
-                        </form>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -31,7 +30,9 @@
             {% endif %}
             
             {% for page in pages.iter_pages() %}
-            <a {%if page == pages.page %} class="active" {% endif %} href="./{{ category }}?page={{ page }}">{{ page }}</a>
+                <a {% if page == pages.page %} class="active" {% endif %} href="./{{ category }}?page={{ page }}">
+                    {% if page == None %} ... {%else%} {{ page }}{%endif%} 
+                </a>
             {% endfor %}
             
             {% if next_url %}
