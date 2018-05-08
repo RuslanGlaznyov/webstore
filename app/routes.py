@@ -110,6 +110,7 @@ def cart():
 
 
 @app.route('/addtocart', methods = ['POST', 'GET'])
+@login_required
 def add_to_cart():
     if request.method == 'POST':
         if 'cart' not in session:
@@ -120,6 +121,8 @@ def add_to_cart():
         session['cart'].append(id)
         flash('добавили в корзину')
         return redirect(url_for('cart'))
+    else:
+        return redirect(url_for('index'))
 
 @app.route('/delete_from_cart', methods = ['POST', 'GET'])
 def delete_from_cart():
