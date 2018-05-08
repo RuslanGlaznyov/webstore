@@ -42,6 +42,7 @@ def content(id_good, title, category):
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    session['cart'].clear()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 
@@ -72,8 +73,6 @@ def user_page():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data, password=form.password.data)
@@ -84,6 +83,7 @@ def register():
     return render_template('register.html', form=form)
 
 @app.route('/cart')
+@login_required
 def cart():
     if 'cart' not in session or len(session['cart']) == 0:
         return render_template('cart.html', display_cart = {}, isEmty=True, total=0)
@@ -129,10 +129,11 @@ def delete_from_cart():
 
         form = request.form
         id = int(form.get('good_id'))
-        print(id)
         session['cart'].remove(id)
         flash('')
         return redirect(url_for('cart'))
+
+
 
 #admin decoretor
 listens_for(Good,'after_delete')(del_image)
