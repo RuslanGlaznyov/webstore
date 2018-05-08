@@ -265,25 +265,31 @@ header .button:hover{
 /* =======================pagination============================= */
 .pagination{
 	display: inline-block;
-	margin: 20px auto;
+	margin: 40px auto;
+	display: flex;
 }
 .pagination a {
     color: black;
-    float: left;
     padding: 8px 16px;
     text-decoration: none;
-    border: 1px solid #ddd;
+    font-weight: bold;
+    border-top:1.5px solid #000;
+    border-right:1.5px solid #000;
+	border-bottom:1.5px solid #000;
+	background-color: #fff;
+
 }
 
 .pagination a.active {
-    background-color: #4CAF50;
     color: white;
-    border: 1px solid #4CAF50;
+    opacity: 0.6;
+    background-color: #000;
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 .pagination a:first-child {
+	border-left: 1.5px solid #000;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -295,15 +301,28 @@ header .button:hover{
 /* ===================== cart ==================== */
 #cart{
 	margin-top: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+.table-cart  {
+	border-collapse: separate;
+	border-spacing: 0 10px;
 }
 .input-qty {
-	width: 60px;
-	float: left;
+	width: 50px;
+	display: flex;
 	
   }
+.table-cart td {
+	margin-bottom: 10px;
+	background-color: #fff;
+ 	opacity: 0.9;
+ 	border-bottom: 1.5px solid #000;
+ }
 .table-cart > tr > td {
 	vertical-align: middle !important;
 }
+
 
 @media (max-width: 1200px){
 
