@@ -15,7 +15,7 @@
                 </td>
                 <td>{{value['title']}}</td>
                 <td style="width:150px">
-                    {{ value['qty'] }}  &nbsp; шт
+                    {{ value['qty'] }}  &nbsp;
                 </td>
 
                 <td class="text-right">{{ value['price'] }}</td>
@@ -34,7 +34,7 @@
                 <td colspan="4" class="text-center">Корзина пуста</td>
             </tr>
             {%endif%}
-            <tr>
+            <tr class="sum">
                 <td></td>
                 <td class="text-right">Cart Total</td>
                 <td class="text-right">{{ total }}</td>
