@@ -255,12 +255,38 @@ header .button:hover{
 	background: #f1f1f1;
 }
 /* ============================ content ================================= */
-#content .disk .border {
-	background: #fff;
-	border: 1px solid black;
- }
-#content  .disk .border h2{
-	padding: 15px 60px;
+#content .slider .main-img{
+	background-color: #fff;	
+	margin: 10px 0 10px	;
+	border-radius: 10px;
+	padding: 50px;	
+}
+#content .slider .sub-img{
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	border-radius: 5px;
+	padding: 2%;
+	margin-right: 10px;
+	padding: 10px;
+}
+#content .slider .sub-img:last-child{
+	margin-right: 0px;	
+}
+#content .slider .sub-img img{
+	height: 100%;
+	width: 100%;
+}
+#content .slider .main-img:hover{
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+#content .slider .sub-img:hover{
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+#content .good-info .good-name{
+		text-align: center;
+		text-transform: uppercase;
 }
 /* =======================pagination============================= */
 .pagination{
