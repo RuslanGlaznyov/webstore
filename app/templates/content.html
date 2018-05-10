@@ -3,27 +3,35 @@
     <div class="container">
         <div id="content">
             <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="slider">
-                    <img src="{{url_for('static', filename='img/cube1.png')}}" alt="">
-                    <img src="{{url_for('static', filename='img/cube2.png')}}" alt="">
-                    <img src="{{url_for('static', filename='img/cube3.png')}}" alt="">
-                    <img src="{{url_for('static', filename='img/cube4.png')}}" alt="">
+                    <img class="main-img col-lg-12" src="{{url_for('static', filename='img/cube1.png')}}" alt="">
+                    <div class="d-flex">
+                        <div class="sub-img">
+                            <img src="{{url_for('static', filename='img/cube2.png')}}" alt="">
+                        </div>
+                        <div class="sub-img">
+                            <img src="{{url_for('static', filename='img/cube3.png')}}" alt="">
+                        </div>
+                        <div class="sub-img">
+                            <img src="{{url_for('static', filename='img/cube4.png')}}" alt="">
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="disc">
-                    <div class="border">
-                        <h2>{{ good.title }}</h2>
+            <div class="col-lg-6">
+                <div class="good_info">
+                    <div class="good-name">
+                        <h2>{{ good.title }}</h2>  
                     </div>
-                    <div class="border ">
+                    <div class="good-description">
                         <p>краткое описание</p>
                         <p>{{ good.desc }}</p>
                         <form action="{{url_for('add_to_cart')}}" method="POST">
                                 <input type ="hidden" name = "good_id" value = "{{ good.id }}" />
                                 <input type = "submit" value = "submit" />
                         </form>
-                        
                     </div>
                 </div>
             </div>
