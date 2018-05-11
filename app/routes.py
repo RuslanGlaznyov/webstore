@@ -42,7 +42,8 @@ def content(id_good, title, category):
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    session['cart'].clear()
+    if 'cart' in session:
+        session['cart'].clear()
     if current_user.is_authenticated:
         return redirect(url_for('index'))
 

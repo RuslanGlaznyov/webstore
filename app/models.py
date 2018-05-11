@@ -29,6 +29,8 @@ class Good(db.Model):
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
+    order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
+
     def __init__(self, *args, **kwargs):
         super(Good, self).__init__(*args, **kwargs)
         self.generate_slug()
@@ -50,6 +52,14 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password = db.Column(db.String(128))
+
+    orders = db.relationship('Order', backref='user', lazy='dynamic')
+
+class Order(db.Model):
+     id = db.Column(db.Integer, primary_key=True)
+     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+     goods = db.relationship('Good', backref='order',lazy='dynamic')
+
 
 @login.user_loader
 def load_user(ID):
