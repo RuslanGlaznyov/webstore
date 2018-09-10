@@ -1,0 +1,9 @@
+{% extends 'admin/model/list.html' %}
+{% block list_header%}
+{{ super() }}
+    {%for order in orders%}
+        <p>{{ order.user }} </p>
+    {%endfor%}
+{% endblock %}
+{%block list_pager%}
+{% endblock %}

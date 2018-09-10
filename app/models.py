@@ -13,6 +13,9 @@ class Category(db.Model):
     category = db.Column(db.String(64), unique=True)
     goods = db.relationship('Good', backref='category',lazy='dynamic')
 
+    def __str__(self):
+        return self.category
+        
     def __repr__(self):
         return "<id : {}, name_category : {}>".\
                 format(self.id ,self.category)        
@@ -29,7 +32,7 @@ class Good(db.Model):
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
-    order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
+    # order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
 
     def __init__(self, *args, **kwargs):
         super(Good, self).__init__(*args, **kwargs)
@@ -41,6 +44,7 @@ class Good(db.Model):
         if self.title:
             self.slug = slugify(self.title)
 
+    
     def __repr__(self):
         return "<id : {}, title : {}>".format(self.id , self.title)
     
@@ -54,13 +58,27 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(128))
 
     orders = db.relationship('Order', backref='user', lazy='dynamic')
+    def __str__(self):
+        return self.email
+
+    def __repr__(self):
+        return self.email
+
+    def __unicode__(self):
+        return self.email
+
+OrderGood = db.Table('OrderGood', db.Model.metadata,
+    db.Column('left_id', db.Integer, db.ForeignKey('order.id')),
+    db.Column('right_id', db.Integer, db.ForeignKey('good.id')))
+
 
 class Order(db.Model):
-     id = db.Column(db.Integer, primary_key=True)
-     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-     goods = db.relationship('Good', backref='order',lazy='dynamic')
-
-
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #  goods = db.relationship('Good', backref='order',lazy='dynamic')
+    goods = db.relationship("Good", secondary=OrderGood, backref='order', lazy='dynamic')
+    
 @login.user_loader
 def load_user(ID):
     return User.query.get(int(ID))
+

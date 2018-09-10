@@ -14,7 +14,7 @@ def delete_db():
 
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+
 db.create_all()
 delete_db()
 

@@ -1,0 +1,12 @@
+{% extends 'admin/model/list.html' %}
+{%block model_list_table %}
+{%for order in orders%}
+    <p>{{ order }} </p>
+    <p>{{ order.user }} </p>
+    {%for good in order.goods.all()%}
+            <p>{{ good.title }}</p>
+    {%endfor%}    
+{%endfor%}
+{%endblock%}
+{% block list_pager %}
+{%endblock%}

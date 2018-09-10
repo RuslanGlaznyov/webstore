@@ -36,11 +36,16 @@
             {%endif%}
             <tr class="sum">
                 <td></td>
-                <td class="text-right">Cart Total</td>
+                <td class="text-right">Всего:</td>
                 <td class="text-right">{{ total }}</td>
                 <td></td>
             </tr>
         </table>
+        {%if not isEmty%}
+        <form action="#" method="POST">
+            <button>Оформить заказ</button>
+        </form>
+        {%endif%}
     </div>
 </div>
 {%endblock%}

@@ -2,14 +2,13 @@ from app import app, admin, db
 from flask import render_template, url_for, request, flash, redirect, session
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
-from app.models import Good, Category, User
+from app.models import Good, Category, User, Order, OrderGood
 from sqlalchemy.event import listens_for
 
-from app.admin import GoodView, CategoryView, del_image
-from app.forms import LoginForm, RegistrationForm, AddToCartForm
+from app.admin import GoodView, CategoryView, OrderView, del_image, ModelView, UserView
+from app.forms import LoginForm, RegistrationForm
 
 categories = Category.query.all()
-
 @app.route("/")
 @app.route("/index")
 def index():
@@ -19,7 +18,7 @@ def index():
 def goods(category):
     page = request.args.get('page', 1, type=int)
 
-    category_from_db = Category.query.filter(Category.category == category).first()
+    category_from_db = Category.query.filter(Category.category == category).first_or_404()
     goods_by_category = category_from_db.goods.paginate(
     page, app.config['GOOD_PER_PAGE'], False)
 
@@ -35,9 +34,8 @@ def goods(category):
 
 @app.route("/goods/<category>/<int:id_good>/<title>")
 def content(id_good, title, category):
-    form=AddToCartForm
     good = Good.query.filter(Good.id == id_good).first_or_404()
-    return render_template('content.html', good=good,form=form )
+    return render_template('content.html', good=good)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -142,5 +140,9 @@ def delete_from_cart():
 #admin decoretor
 listens_for(Good,'after_delete')(del_image)
 
+
+
 admin.add_view(GoodView(Good, db.session))
 admin.add_view(CategoryView(Category, db.session))
+admin.add_view(OrderView(Order, db.session))
+admin.add_view(UserView(User, db.session))

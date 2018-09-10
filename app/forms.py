@@ -23,6 +23,3 @@ class RegistrationForm(FlaskForm):
         if email is not None:
             raise ValidationError('Пожалуйста используйте другой адрес эл.почты')
 
-class AddToCartForm(FlaskForm):
-    submit = SubmitField("добавить в корзину")
-    good_id = HiddenField()
