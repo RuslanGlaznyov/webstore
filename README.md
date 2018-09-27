@@ -6,8 +6,8 @@ Installation
 
 You can create a virtual environment and install the required packages with the following commands:
 
-    $ virtualenv venv
-    $ . venv/bin/activate
+    $ python3 -m venv venv
+    $ source venv/bin/activate
     (venv) $ pip install -r requirements.txt
     
 befor runing start my-sql server
