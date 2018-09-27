@@ -10,7 +10,7 @@ You can create a virtual environment and install the required packages with the 
     $ source venv/bin/activate
     (venv) $ pip install -r requirements.txt
     
-befor runing start my-sql server
+befor running you need to start my-sql server
 
 Running
 --------------------
